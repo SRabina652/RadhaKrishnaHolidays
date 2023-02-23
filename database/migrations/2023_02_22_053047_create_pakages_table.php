@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('pakages', function (Blueprint $table) {
             $table->id();
-
             $table->string('pakageName');
             $table->integer('totalDays');
             $table->integer('price');

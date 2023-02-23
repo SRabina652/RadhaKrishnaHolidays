@@ -24,7 +24,9 @@ class PakagesController extends Controller
      */
     public function index()
     {
-    return view('admin.index');
+        $pakages = Pakages::latest()->paginate(1);
+        return view('admin.display', compact('pakages'));
+        // return view('admin.layouts.admin-dash-layout', compact('pakages'));
     }
 
     /**
@@ -32,7 +34,7 @@ class PakagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.index');
     }
 
     /**
@@ -40,7 +42,23 @@ class PakagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateAll($request);
+
+        $image='';
+        if($request->pakageImage){
+            $image = time() . '.' . $request->pakageImage->extension();
+            $request->pakageImage->move(public_path('uploads'),$image);
+        }
+
+        $data = new Pakages();
+        $data->pakageName = $request->pakageName;
+        $data->price = $request->price;
+        $data->totalDays = $request->totalDays;
+        $data->pakageImage = $image;
+        $data->Description=$request->Description;
+        $data->save();
+       // print_r($request->all());
+        return redirect()->route('pakages.index')->with('success','Product Data Inserted Successfully');
     }
 
     /**
@@ -54,9 +72,15 @@ class PakagesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pakages $pakages)
+    public function edit($id)
     {
-        //
+        $product=Pakages::findorFail($id);
+        if(is_null($product)){
+            return redirect('admin.index');
+        }else{
+            $data = compact('product');
+            return view('admin.edit')->with($data);
+        }
     }
 
     /**

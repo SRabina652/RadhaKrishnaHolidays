@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminPakagesController;
+use App\Http\Controllers\PakagesController;
+use App\Models\Pakages;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[AdminPakagesController::class, 'index']);
+Route::get('/display',[PakagesController::class, 'index']);
+Route::get('/add',[PakagesController::class,'create'])->name('pakages.index');
+Route::post('/store',[PakagesController::class,'store'])->name('pakages.store');
+Route::get('/edit/{id}', [PakagesController::class,'edit'])->name('pakages.edit');

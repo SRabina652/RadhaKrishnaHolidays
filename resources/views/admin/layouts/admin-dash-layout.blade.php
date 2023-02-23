@@ -100,9 +100,9 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
-                            <a href="{{url('/admin/product')}}" class="nav-link active">
-                             <i class="fa-solid fa-plus"></i>
+                        <li class="nav-item">
+                            <a href="{{url('/add')}}" class="nav-link">
+                             <i class="nav-icon fa-solid fa-plus"></i>
                                 <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
                                 <p>
                                 &nbsp;&nbsp;Insert Pakages
@@ -110,10 +110,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{url('/display')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Orders
+                                    Display products
                                     <!-- <span class="right badge badge-danger">New</span> -->
                                 </p>
                             </a>
@@ -178,7 +178,6 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid p-3">
-                    <h1>hi there</h1>
                     @yield('content')
                 </div>
             </section>
