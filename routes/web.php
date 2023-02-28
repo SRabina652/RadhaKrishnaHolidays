@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPakagesController;
 use App\Http\Controllers\PakagesController;
+use App\Http\Controllers\FooterController;
 use App\Models\Pakages;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/display',[PakagesController::class, 'index']);
+Route::get('/display',[PakagesController::class, 'index'])->name('pakages.display');
 Route::get('/add',[PakagesController::class,'create'])->name('pakages.index');
 Route::post('/store',[PakagesController::class,'store'])->name('pakages.store');
-Route::get('/edit/{id}', [PakagesController::class,'edit'])->name('pakages.edit');
+Route::get('/edit/{product}', [PakagesController::class,'edit'])->name('pakages.edit');
+Route::put('/update/{product}', [PakagesController::class,'update'])->name('pakages.update');
+Route::delete('/delete/{id}',[PakagesController::class,'destroy'])->name('pakages.delete');
+
 
 
 Route::get('/home', function () {
@@ -43,3 +47,8 @@ Route::get('/annapurnabasecamptrek', function () {
     return view('annapurna-base-camp-trek-detail');
 });
 
+
+
+Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
+Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
+Route::put('/footer/update/{footer}', [FooterController::class, 'update'])->name('footer.update');

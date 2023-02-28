@@ -125,7 +125,7 @@
                             <a href="pages/gallery.html" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                    Add Pakages
+                                    Footer Update
                                 </p>
                             </a>
                         </li>

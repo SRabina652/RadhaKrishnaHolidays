@@ -18,6 +18,14 @@
     <td class="align-middle">{{$product->totalDays}} days</td>
     <td class="align-middle"><img src="{{ asset('uploads/' .$product->pakageImage) }}" class="img-thumbnail" height="50" width="50"></td>
     <td><a href="{{route('pakages.edit',$product->id)}}" class="btn btn-light">Edit</a></td> 
+    <td>
+    <form action="{{route('pakages.delete',$product->id)}}" method="POST">
+        @csrf
+        @method('DELETE')
+    <button type="submit" class="btn btn-light" onclick="return confirm('Are you sure you want to delete')"> Delete
+</button>
+    </td>
+   
 </tr>
  @endforeach
  </tbody>
