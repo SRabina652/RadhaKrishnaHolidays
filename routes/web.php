@@ -16,13 +16,18 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/', function () {
+    return view('home');
+});
+
+
 Route::get('/display',[PakagesController::class, 'index'])->name('pakages.display');
 Route::get('/add',[PakagesController::class,'create'])->name('pakages.index');
 Route::post('/store',[PakagesController::class,'store'])->name('pakages.store');
 Route::get('/edit/{product}', [PakagesController::class,'edit'])->name('pakages.edit');
 Route::put('/update/{product}', [PakagesController::class,'update'])->name('pakages.update');
 Route::delete('/delete/{id}',[PakagesController::class,'destroy'])->name('pakages.delete');
-
 
 
 Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
@@ -32,9 +37,6 @@ Route::put('/footer/update/{footer}', [FooterController::class, 'update'])->name
 
 
 
-Route::get('/', function () {
-    return view('home');
-});
 Route::get('/mountainflight', function () {
     return view('mountainflight');
 });
