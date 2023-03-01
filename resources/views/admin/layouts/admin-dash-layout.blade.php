@@ -43,12 +43,6 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
             </ul>
 
             <!-- Right navbar links -->
@@ -75,11 +69,9 @@
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
+                   
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block text-white">Radha Krishna Travels</a>
                     </div>
                 </div>
 
@@ -100,15 +92,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="{{url('/add')}}" class="nav-link">
-                             <i class="nav-icon fa-solid fa-plus"></i>
-                                <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
-                                <p>
-                                &nbsp;&nbsp;Insert Pakages
-                                </p>
-                            </a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a href="{{url('/display')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -120,9 +104,17 @@
                         </li>
 
                         <li class="nav-header">Add Section</li>
-                       
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="{{url('/add')}}" class="nav-link">
+                             <i class="nav-icon fa-solid fa-plus"></i>
+                                <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+                                <p>
+                                &nbsp;&nbsp;Insert Pakages
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('footer.index')}}" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Footer Update
