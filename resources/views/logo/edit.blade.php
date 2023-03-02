@@ -32,6 +32,8 @@
         <img src="{{asset('uploads/'.$logo->ImageLogo)}}" width="60px" height="60px">
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success"><a href="{{URL::to('/logo') }}"></a> Go Back</button>
+
   </form>
 </div>
 </body>

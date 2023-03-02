@@ -60,6 +60,8 @@
       @enderror
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success"><a href="{{route('pakages.display') }}"></a> Go Back</button>
+
   </form>
 </div>
 </body>

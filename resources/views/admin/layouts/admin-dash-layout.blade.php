@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -76,7 +78,7 @@
                 </div>
 
                 <!-- SidebarSearch Form -->
-                <div class="form-inline">
+                <!-- <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
@@ -85,10 +87,10 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Sidebar Menu -->
-                <nav class="mt-2">
+                <nav class="mt-5">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
@@ -97,17 +99,14 @@
                             <a href="{{url('/display')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Display products
+                                    Display Pakages
                                     <!-- <span class="right badge badge-danger">New</span> -->
                                 </p>
                             </a>
                         </li>
-
-                        <li class="nav-header">Add Section</li>
                         <li class="nav-item">
                             <a href="{{url('/add')}}" class="nav-link">
-                             <i class="nav-icon fa-solid fa-plus"></i>
-                                <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+                            <i class="fa fa-plus" aria-hidden="true"></i>
                                 <p>
                                 &nbsp;&nbsp;Insert Pakages
                                 </p>
@@ -117,15 +116,23 @@
                             <a href="{{route('footer.index')}}" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                    Footer Update
+                                    Footer
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/kanban.html" class="nav-link">
+                            <a href="{{route('logo.index')}}" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
-                                    Kanban Board
+                                    Logo
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('contact.index')}}" class="nav-link">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                                <p>
+                                    Customer Queries
                                 </p>
                             </a>
                         </li>
@@ -139,19 +146,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/mailbox/mailbox.html" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Inbox</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/mailbox/compose.html" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Compose</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/mailbox/read-mail.html" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Read</p>
                                     </a>
