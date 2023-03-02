@@ -68,7 +68,6 @@
 .titles {
     padding: 0 0 30px 0;
     text-align: center;
-    font-size: 30px;
 }
 
 /*-----------------------Our Tour Destination-----------------------*/
@@ -395,43 +394,87 @@
 
 /*-----------------------Annapurna Base Camp Trek-----------------------*/
 
-.annapurna-base-camp-trek {
+.trekking-region-detail-page {
     margin: 50px 0;
 }
 
-.annapurna-base-camp-trek .summary h3 {
+.trekking-region-detail-page .summary h3 {
     margin: 20px 0;
     border: 2px solid #003048;
     text-align: center;
     padding: 10px 0;
+    border-radius: 50px;
 }
 
-.annapurna-base-camp-trek .summary p {
+.trekking-region-detail-page .summary p {
     line-height: 45px;
     text-align: justify;
 }
 
-.annapurna-base-camp-trek .summary img {
+.trekking-region-detail-page .summary img {
     height: 500px;
+    border-radius: 50px;
 }
 
-.annapurna-base-camp-trek .card {
+.trekking-region-detail-page .accordion-item {
     margin: 10px 0;
 }
 
-
-.fa-angle-down:before {
-    content: "\f107";
-    color: #28a745;
-    margin-right: 5px;
-}
-
-.fa-angle-up:before {
-    content: "\f106";
-    color: #28a745;
-    margin-right: 5px;
-}
-
-.annapurna-base-camp-trek .summary h5 {
+.trekking-region-detail-page .summary h5 {
     margin: 20px 0;
+}
+
+.trekking-region-detail-page .short h3 {
+    margin: 20px 0;
+    border: 2px solid #003048;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 50px;
+}
+
+.trekking-region-detail-page .short .pricedetail {
+    text-align: center;
+}
+
+.trekking-region-detail-page .short .grouppricedetail {
+    margin: 50px 0;
+}
+
+/*-----------------------Mountain Flight-----------------------*/
+.mountainflight {
+    padding: 50px 0;
+}
+
+.mountainflight h4 {
+    margin: 50px 0;
+}
+
+.mountainflight h5 {
+    margin: 50px 0;
+}
+
+.mountainflight p {
+    line-height: 45px;
+    text-align: justify;
+}
+
+.mountainflight img {
+    height: 400px;
+    border-radius: 50px;
+    margin: 20px 0;
+    max-width: 100%;
+}
+
+.mountainflight ul {
+    text-decoration: none;
+}
+
+.mountainflight ul li {
+    line-height: 45px;
+    text-align: justify;
+    text-decoration: none;
+}
+
+.mountainflight i {
+    padding-right: 20px;
 }
