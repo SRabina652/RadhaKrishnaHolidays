@@ -70,8 +70,7 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                   
+                <div class="user-panel mt-2 pb-3 mb-3 d-flex">
                     <div class="info">
                         <a href="#" class="d-block text-white">Radha Krishna Travels</a>
                     </div>
@@ -90,7 +89,7 @@
                 </div> -->
 
                 <!-- Sidebar Menu -->
-                <nav class="mt-5">
+                <nav class="mt-3">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
@@ -112,6 +111,15 @@
                                 </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('dayDesc.index')}}" class="nav-link">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                <p>
+                                &nbsp;&nbsp;Add Days Desctiption
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{route('footer.index')}}" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
@@ -129,7 +137,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('contact.index')}}" class="nav-link">
+                            <a href="{{ url('/contact-us')}}" class="nav-link">
                             <i class="fa fa-users" aria-hidden="true"></i>
                                 <p>
                                     Customer Queries

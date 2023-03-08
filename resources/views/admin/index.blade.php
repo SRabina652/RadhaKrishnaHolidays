@@ -22,7 +22,7 @@
     </div>
     <div class="mb-3">
       <label for="exampleInputprice" class="form-label">Pakage Price</label>
-      <input type="number" class="form-control" name="price" value="{{old('price')}}" />
+      <input type="number" step="any" class="form-control" name="price" value="{{old('price')}}" />
       @error('price')
       <div class="text-danger">{{ $message }}</div>
       @enderror

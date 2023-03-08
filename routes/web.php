@@ -5,6 +5,8 @@ use App\Http\Controllers\PakagesController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\IncludeDescriptionController;
+use App\Http\Controllers\DayDescriptionController;
 use App\Models\Pakages;
 use Illuminate\Support\Facades\Route;
 
@@ -18,12 +20,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//for home page
 Route::get('/', function () {
     return view('home');
 });
 
-
+//all about the pakage controller
 Route::get('/display',[PakagesController::class, 'index'])->name('pakages.display');
 Route::get('/add',[PakagesController::class,'create'])->name('pakages.index');
 Route::post('/store',[PakagesController::class,'store'])->name('pakages.store');
@@ -32,13 +34,32 @@ Route::put('/update/{product}', [PakagesController::class,'update'])->name('paka
 Route::delete('/delete/{id}',[PakagesController::class,'destroy'])->name('pakages.delete');
 
 
+//all about the footer controller
 Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
 Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
 Route::put('/footer/update/{footer}', [FooterController::class, 'update'])->name('footer.update');
 
 
+//all about the header logo controller
+Route::get('/logo', [LogoController::class, 'index'])->name('logo.index');
+Route::get('/logo/edit/{logo}', [LogoController::class, 'edit'])->name('logo.edit');
+Route::put('/logo/update/{logo}', [LogoController::class, 'update'])->name('logo.update');
+
+//all about the contract controller
+Route::get('/contact-us', [ContractController::class, 'index'])->name('contact.index');
+
+//all about the Days Descriptions
+Route::get('/addDays', [DayDescriptionController::class, 'index'])->name('dayDesc.index');
+Route::post('/storeDays', [DayDescriptionController::class, 'store'])->name('dayDesc.store');
 
 
+//all about the include controller
+Route::get('/includes', [IncludeDescriptionController::class, 'index'])->name('include.index');
+Route::get('/include/edit/{description}', [IncludeDescriptionController::class, 'edit'])->name('include.edit');
+Route::put('/include/update/{description}', [IncludeDescriptionController::class, 'update'])->name('include.update');
+
+
+//frontend controllers
 Route::get('/mountainflight', function () {
     return view('mountainflight');
 });
@@ -58,19 +79,6 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-
-
-Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
-Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
-Route::put('/footer/update/{footer}', [FooterController::class, 'update'])->name('footer.update');
-
-
-Route::get('/logo', [LogoController::class, 'index'])->name('logo.index');
-Route::get('/logo/edit/{logo}', [LogoController::class, 'edit'])->name('logo.edit');
-Route::put('/logo/update/{logo}', [LogoController::class, 'update'])->name('logo.update');
-
-
-Route::get('/contact', [ContractController::class, 'index'])->name('contact.index');
 Route::get('/annapurna-region-trek', function () {
     return view('trekking-region-list.annapurna-region-trek');
 });
