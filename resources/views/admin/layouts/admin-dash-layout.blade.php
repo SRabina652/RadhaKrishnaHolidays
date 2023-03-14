@@ -76,18 +76,6 @@
                     </div>
                 </div>
 
-                <!-- SidebarSearch Form -->
-                <!-- <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div> -->
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-3">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -111,9 +99,16 @@
                                 </p>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a href="{{route('dayDesc.index')}}" class="nav-link">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                <p>
+                                &nbsp;&nbsp;Display Days Desctiption
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('dayDesc.create')}}" class="nav-link">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                                 <p>
                                 &nbsp;&nbsp;Add Days Desctiption

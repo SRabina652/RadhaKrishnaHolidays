@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('day_descriptions', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('Pakage_id')->constrained();
+            $table->id('day_description_id');
+            $table->foreignId('pakage_id')->constrained();
             $table->integer('days');
             $table->string('DayDescription');
             $table->timestamps();
+            $table->unique(['pakage_id','days']);
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_day_descriptions');
+        Schema::dropIfExists('day_descriptions');
     }
 };

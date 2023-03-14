@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 class Pakages extends Model
 {
     use HasFactory;
-
     //one to many relationship of the include table and the pakage table
     public function includeDescriptions(){
         return $this->hasMany(IncludeDescription::class);

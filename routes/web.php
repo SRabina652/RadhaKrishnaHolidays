@@ -49,8 +49,14 @@ Route::put('/logo/update/{logo}', [LogoController::class, 'update'])->name('logo
 Route::get('/contact-us', [ContractController::class, 'index'])->name('contact.index');
 
 //all about the Days Descriptions
-Route::get('/addDays', [DayDescriptionController::class, 'index'])->name('dayDesc.index');
+Route::get('/displayDays/create', [DayDescriptionController::class, 'create'])->name('dayDesc.create');
+Route::get('/displayDays', [DayDescriptionController::class, 'index'])->name('dayDesc.index');
 Route::post('/storeDays', [DayDescriptionController::class, 'store'])->name('dayDesc.store');
+Route::get('/editDay/{id}', [DayDescriptionController::class,'edit'])->name('dayDesc.edit');
+// Route::put('/updateDay/{id}', [PakagesController::class,'update'])->name('dayDesc.update');
+Route::delete('/day/delete/{id}',[DayDescriptionController::class,'destroy'])->name('dayDesc.delete');
+
+
 
 
 //all about the include controller

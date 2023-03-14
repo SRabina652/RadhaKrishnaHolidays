@@ -25,7 +25,7 @@ class PakagesController extends Controller
      */
     public function index()
     {
-        $pakages = Pakages::latest()->paginate(1);
+        $pakages = Pakages::latest()->paginate(7);
         return view('admin.display', compact('pakages'));
         // return view('admin.layouts.admin-dash-layout', compact('pakages'));
     }
