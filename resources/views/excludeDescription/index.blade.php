@@ -19,20 +19,20 @@
     </div>
     @endif
     <!-- header -->
-    <h1 class="text-center">Add Include Description</h1>
+    <h1 class="text-center">Add Exclude Description</h1>
 
     <!-- form to insert days -->
-    <form action="{{route ('include.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route ('exclude.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
 
-            <h3 class="btn btn-success text-right" onclick="addTextBox()">Add Include</h3>
+            <h3 class="btn btn-success text-right" onclick="addTextBox()">Add exclude</h3>
         </div>
         <div class="mb-3">
             <label for="exampleInputquantity" class="form-label">Pakage Name:&nbsp;&nbsp;</label>
             <select name="pakage_id" class="px-4 p-1">
                 <option>Select Pakages</option>
-                @foreach($includedata as $row)
+                @foreach($excludedata as $row)
                 <option value="{{$row->id}}">{{$row->pakageName}}</option>
                 @endforeach
             </select>
@@ -41,8 +41,8 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="exampleInputprice" class="form-label">Include 1</label>
-            <input type="text" class="form-control" id="day" name="IncludePoints[0]" />
+            <label for="exampleInputprice" class="form-label">Exclude 1</label>
+            <input type="text" class="form-control" id="day" name="ExcludePoints[0]" />
             
         </div>
 
@@ -50,6 +50,6 @@
         <button type="submit" class="btn btn-success mt-5">Submit</button>
 </div>
 </form>
-<script src="{{url('js/includeAddTextBox.js')}}"></script>
+<script src="{{url('js/excludeAddTextBox.js')}}"></script>
 </body>
 </html>

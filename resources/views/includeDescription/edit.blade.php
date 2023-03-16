@@ -18,22 +18,15 @@
   </button>
 </div>
 @endif
-  <h1 class="text-center">Edit Days descriptions</h1>
-  <form action="{{route ('dayDesc.update',$product->day_description_id)}}" method="POST" enctype="multipart/form-data">
+  <h1 class="text-center">Edit Include descriptions</h1>
+  <form action="{{route ('include.update',$product->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
     <div class="mb-3">
-      <label for="exampleInputName" class="form-label">Day Number</label>
-      <input type="text" class="form-control" name="days" value="{{$product->days}}"/>
-      @error('days')
-      <div class="text-danger">{{ $message }}</div>
-      @enderror
-    </div>
-    <div class="mb-3">
       <label for="exampleInputName" class="form-label">Day Description</label>
-      <input type="text" class="form-control" name="DayDescription" value="{{$product->DayDescription}}"/>
-      @error('DayDescription')
+      <input type="text" class="form-control" name="IncludePoints" value="{{$product->IncludePoints}}"/>
+      @error('IncludePoints')
       <div class="text-danger">{{ $message }}</div>
       @enderror
     </div>

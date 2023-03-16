@@ -25,7 +25,7 @@
                <td class="align-middle">{{$day->pakage?->pakageName}}</td>
                <td class="align-middle">{{$day->days}}</td>
                <td class="align-middle">{{ $day->DayDescription }}</td>
-               <td><a href="" class="btn btn-light">Edit</a></td>
+               <td><a href="{{route('dayDesc.edit',$day->day_description_id)}}" class="btn btn-light">Edit</a></td>
                <td>
                   <form action="{{route('dayDesc.delete',$day->day_description_id)}}" method="POST">
                      @csrf

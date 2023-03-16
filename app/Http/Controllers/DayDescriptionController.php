@@ -14,7 +14,6 @@ class DayDescriptionController extends Controller
     public function index()
     {
         $data = DayDescription::with('pakage')->paginate(7);
-        // dd($data);
         return view('DaysDescription.display',['data'=>$data]); 
     }
 
@@ -31,8 +30,6 @@ class DayDescriptionController extends Controller
             'pakage_id' => ['required', 'integer'],
             ]);
 
-       
-            try{
                 foreach($request->DayDescription as $key => $value){
                     $day = new DayDescription();
                     $saveRecord=[
@@ -40,14 +37,15 @@ class DayDescriptionController extends Controller
                         $day->days=$key + 1,
                         $day->DayDescription = $request -> DayDescription[$key],
                     ];
-                    $day->save($saveRecord);
                     
-                }
-                return redirect()->route('pakages.display')->with('success','Product Data Inserted Successfully');
+                     $day->save($saveRecord);
+                    
+                 }
+                
+                 return redirect()->route('dayDesc.index')->with('success','Product Data Inserted Successfully');
         
-            }catch(Exception $e){
-                 echo "unique key voilation";
-            }
+          
+                
     }
         public function destroy($id)
         {
@@ -57,5 +55,31 @@ class DayDescriptionController extends Controller
             }
             return redirect()->back();
         }
-    
+
+        public function edit($id)
+        {
+            $product=DayDescription::findorfail($id);
+            if(is_null($product)){
+                return redirect('admin.display');
+            }else{
+                $data = compact('product');
+                return view('DaysDescription.edit')->with($data);
+            }
+            
+        }
+
+        public function update(Request $request, $id)
+        {
+            $request->validate([
+                'pakageName' => ['required', 'string', 'max:255'],
+                'Description'=>['required','string'],
+                'totalDays' => ['required', 'integer'],
+            ]);
+
+            $updateDay = DayDescription::findorFail($id);
+            $updateDay->days = $request->days;
+            $updateDay->DayDescription = $request -> DayDescription;
+            $updateDay->save();
+            return redirect()->route('DaysDescription.display')->with('success','Product Data Inserted Successfully');
+        }
 }

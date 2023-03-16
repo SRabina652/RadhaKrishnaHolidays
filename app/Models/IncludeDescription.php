@@ -9,7 +9,7 @@ class IncludeDescription extends Model
 {
     use HasFactory;
 
-    public function pakages(){
+    public function pakage(){
         return $this->belongsTo(Pakages::class);
     }
 }

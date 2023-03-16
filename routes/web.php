@@ -6,6 +6,7 @@ use App\Http\Controllers\FooterController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\IncludeDescriptionController;
+use App\Http\Controllers\ExcludeDescriptionController;
 use App\Http\Controllers\DayDescriptionController;
 use App\Models\Pakages;
 use Illuminate\Support\Facades\Route;
@@ -53,16 +54,28 @@ Route::get('/displayDays/create', [DayDescriptionController::class, 'create'])->
 Route::get('/displayDays', [DayDescriptionController::class, 'index'])->name('dayDesc.index');
 Route::post('/storeDays', [DayDescriptionController::class, 'store'])->name('dayDesc.store');
 Route::get('/editDay/{id}', [DayDescriptionController::class,'edit'])->name('dayDesc.edit');
-// Route::put('/updateDay/{id}', [PakagesController::class,'update'])->name('dayDesc.update');
-Route::delete('/day/delete/{id}',[DayDescriptionController::class,'destroy'])->name('dayDesc.delete');
+Route::put('/day/update/{daydescription}', [DayDescriptionController::class,'update'])->name('dayDesc.update');
+Route::delete('/displayDays/delete/{id}',[DayDescriptionController::class,'destroy'])->name('dayDesc.delete');
 
 
 
 
 //all about the include controller
-Route::get('/includes', [IncludeDescriptionController::class, 'index'])->name('include.index');
+Route::get('/add/includes', [IncludeDescriptionController::class, 'create'])->name('include.create');
+Route::get('/display/includes', [IncludeDescriptionController::class, 'index'])->name('include.index');
+Route::post('/storeIncludes', [IncludeDescriptionController::class, 'store'])->name('include.store');
 Route::get('/include/edit/{description}', [IncludeDescriptionController::class, 'edit'])->name('include.edit');
 Route::put('/include/update/{description}', [IncludeDescriptionController::class, 'update'])->name('include.update');
+Route::delete('/include/delete/{id}',[IncludeDescriptionController::class,'destroy'])->name('include.delete');
+
+//all about the exclude controller
+Route::get('/add/exclude', [ExcludeDescriptionController::class, 'create'])->name('exclude.create');
+Route::get('/display/exclude', [ExcludeDescriptionController::class, 'index'])->name('exclude.index');
+Route::post('/storeExclude', [ExcludeDescriptionController::class, 'store'])->name('exclude.store');
+Route::get('/exclude/edit/{description}', [ExcludeDescriptionController::class, 'edit'])->name('exclude.edit');
+Route::put('/exclude/update/{description}', [ExcludeDescriptionController::class, 'update'])->name('exclude.update');
+Route::delete('/exclude/delete/{id}',[ExcludeDescriptionController::class,'destroy'])->name('exclude.delete');
+
 
 
 //frontend controllers

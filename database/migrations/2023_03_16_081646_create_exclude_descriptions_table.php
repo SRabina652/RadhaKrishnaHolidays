@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('include_descriptions', function (Blueprint $table) {
+        Schema::create('exclude_descriptions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pakage_id')->constrained();
-            $table->string('IncludePoints');
+            $table->string('ExcludePoints');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('include_descriptions');
+        Schema::dropIfExists('exclude_descriptions');
     }
 };

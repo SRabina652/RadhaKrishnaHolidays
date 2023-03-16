@@ -93,25 +93,57 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{url('/add')}}" class="nav-link">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
                                 <p>
-                                &nbsp;&nbsp;Insert Pakages
+                                &nbsp;&nbsp;Add Pakages Description
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('dayDesc.index')}}" class="nav-link">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                &nbsp;&nbsp;Display Days Desctiption
+                                Display Days
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('dayDesc.create')}}" class="nav-link">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
                                 <p>
-                                &nbsp;&nbsp;Add Days Desctiption
+                                &nbsp;&nbsp;Add Days Description
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('include.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Display Include
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('include.create')}}" class="nav-link">
+                            &nbsp;&nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+                                <p>
+                                &nbsp;&nbsp;Add Include Desctiption
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('exclude.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Display Exclude
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('exclude.create')}}" class="nav-link">
+                            &nbsp;&nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+                                <p>
+                                &nbsp;&nbsp;Add Exclude Desctiption
                                 </p>
                             </a>
                         </li>
@@ -139,7 +171,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
@@ -167,7 +199,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
