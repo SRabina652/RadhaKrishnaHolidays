@@ -15,40 +15,14 @@ class FooterController extends Controller
      */
     public function index()
     {
-        $footer = Footer::find(1);
+        $footer = Footer::latest()->paginate(2);
         return view('footer.displayFooter', compact('footer'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Footer $footer)
     {
-
         if(is_null($footer)){
             return redirect('footer.displayFooter');
         }else{
@@ -62,18 +36,16 @@ class FooterController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'facebook' => ['required', 'string', 'max:255'],
-            'phone_number' => ['required'],
-            'Twitter' => ['required'],
-            'instagram' => ['required'],
-            'WhatsApp' => ['required'],
+            'Location' => ['required', 'string', 'max:255'],
+            'Telephone' => ['required'],
+            'MailId' => ['required'],
+            'PhoneNumber' => ['required'],
         ]);
         $footer=Footer::findorFail($id);
-        $footer->facebook = $request->facebook;
-        $footer->instagram = $request->instagram;
-        $footer->Twitter = $request->Twitter;
-        $footer->WhatsApp=$request->WhatsApp;
-        $footer->phone_number=$request->phone_number;
+        $footer->Location = $request->Location;
+        $footer->Telephone = $request->Telephone;
+        $footer->MailId = $request->MailId;
+        $footer->PhoneNumber=$request->PhoneNumber;
         $footer->save();
        return redirect()->route('footer.index')->with('success','Product Data Updated Successfully');
     }

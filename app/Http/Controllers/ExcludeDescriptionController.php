@@ -62,9 +62,9 @@ class ExcludeDescriptionController extends Controller
     
     public function destroy($id)
     {
-        $day=ExcludeDescription::findorFail($id);
-        if(!is_null($day)){
-        $day->delete();
+        $excludeDataDisplay=ExcludeDescription::findorFail($id);
+        if(!is_null($excludeDataDisplay)){
+        $excludeDataDisplay->delete();
         }
         return redirect()->back();
     }

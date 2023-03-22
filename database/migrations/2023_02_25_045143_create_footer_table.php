@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('footers', function (Blueprint $table) {
             $table->id();
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('Twitter')->nullable();
-            $table->string('WhatsApp')->nullable();
-            $table->string('phone_number')->nullable();
+            $table->string('Location')->nullable();
+            $table->string('Telephone')->nullable();
+            $table->string('MailId')->nullable();
+            $table->string('PhoneNumber')->nullable();
             $table->timestamps();
         });
     }

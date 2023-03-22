@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contract;
+
 use App\Models\DayDescription;
 use App\Models\Pakages;
 use Exception;
@@ -71,15 +71,14 @@ class DayDescriptionController extends Controller
         public function update(Request $request, $id)
         {
             $request->validate([
-                'pakageName' => ['required', 'string', 'max:255'],
-                'Description'=>['required','string'],
-                'totalDays' => ['required', 'integer'],
+                'DayDescription'=>['required','string'],
+                'days' => ['required', 'integer'],
             ]);
-
+            
             $updateDay = DayDescription::findorFail($id);
             $updateDay->days = $request->days;
             $updateDay->DayDescription = $request -> DayDescription;
             $updateDay->save();
-            return redirect()->route('DaysDescription.display')->with('success','Product Data Inserted Successfully');
+            return redirect()->route('dayDesc.index')->with('success','Day Data Updated Successfully');
         }
 }

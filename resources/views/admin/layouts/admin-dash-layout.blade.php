@@ -171,6 +171,17 @@
                                 </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('user.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Display User
+                                </p>
+                            </a>
+                        </li>
+                        
+
                         <!-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>

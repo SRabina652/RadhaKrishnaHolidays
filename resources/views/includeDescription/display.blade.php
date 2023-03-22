@@ -16,7 +16,7 @@
    }
 </style>
 
-<div class="container">
+<div class="container mt-5">
     <h1>Display Include Descriptions</h1>
     <div class="mt-5">
         <table class="table">
@@ -38,6 +38,7 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-light" onclick="return confirm('Are you sure you want to delete')"> Delete
                             </button>
+                        </form>
                     </td>
 
                 </tr>

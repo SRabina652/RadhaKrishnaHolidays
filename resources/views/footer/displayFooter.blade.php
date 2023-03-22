@@ -6,24 +6,29 @@
    <div class="mt-5">
       <table class="table">
          <thead class="bg-success text-white fw-bold">
-            <th>Instagram</th>
-            <th>Facebook</th>
-            <th>WhatsApp</th>
-            <th>Twitter</th>
-            <th>phone_number</th>
+            <th>Location</th>
+            <th>Telephone</th>
+            <th>MailId</th>
+            <th>PhoneNumber</th>
             <th>Edit</th>
          </thead>
          <tbody>
+         @foreach ($footer as $footerData)
             <tr>
-               <td class="align-middle">{{ $footer->facebook }}</td>
-               <td class="align-middle">{{ $footer->instagram }}</td>
-               <td class="align-middle">{{ $footer->phone_number }}</td>
-               <td class="align-middle">{{ $footer->Twitter }}</td>
-               <td class="align-middle">{{ $footer->WhatsApp}}</td>
-               <td><a href="{{ route('footer.edit',$footer->id) }}" class="btn btn-light">Edit</a></td>
+               <td class="align-middle">{{ $footerData->Location }}</td>
+               <td class="align-middle">{{ $footerData->Telephone }}</td>
+               <td class="align-middle">{{ $footerData->MailId }}</td>
+               <td class="align-middle">{{ $footerData->PhoneNumber }}</td>
+               <td><a href="{{ route('footer.edit',$footerData->id) }}" class="btn btn-light">Edit</a></td>
             </tr>
+            @endforeach
          </tbody>
       </table>
+      <div class="d-flex">
+            <div class="mx-auto">
+                {!! $footer->links() !!}
+            </div>
+        </div>
    </div>
 </div>
 @endsection

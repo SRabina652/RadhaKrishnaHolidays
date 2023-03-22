@@ -20,7 +20,7 @@
          </thead>
          <tbody>
             @foreach ($data as $day)
-          
+
             <tr>
                <td class="align-middle">{{$day->pakage?->pakageName}}</td>
                <td class="align-middle">{{$day->days}}</td>
@@ -32,6 +32,7 @@
                      @method('DELETE')
                      <button type="submit" class="btn btn-light" onclick="return confirm('Are you sure you want to delete')"> Delete
                      </button>
+                  </form>
                </td>
 
             </tr>
@@ -39,10 +40,10 @@
          </tbody>
       </table>
       <div class="d-flex">
-    <div class="mx-auto">
-        {!! $data->links() !!}
-    </div>
-</div>
+         <div class="mx-auto">
+            {!! $data->links() !!}
+         </div>
+      </div>
    </div>
 </div>
 <script src="{{url('js/changebtn.js')}}"></script>

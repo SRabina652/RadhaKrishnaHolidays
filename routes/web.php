@@ -8,6 +8,7 @@ use App\Http\Controllers\ContractController;
 use App\Http\Controllers\IncludeDescriptionController;
 use App\Http\Controllers\ExcludeDescriptionController;
 use App\Http\Controllers\DayDescriptionController;
+use App\Http\Controllers\AdminUserController;
 use App\Models\Pakages;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,11 @@ Route::delete('/delete/{id}',[PakagesController::class,'destroy'])->name('pakage
 Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
 Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
 Route::put('/footer/update/{footer}', [FooterController::class, 'update'])->name('footer.update');
+
+//all about the user controllers
+Route::get('/user', [AdminUserController::class, 'index'])->name('user.index');
+Route::get('/user/edit/{user}', [AdminUserController::class, 'edit'])->name('user.edit');
+Route::put('/user/update/{user}', [AdminUserController::class, 'update'])->name('user.update');
 
 
 //all about the header logo controller
