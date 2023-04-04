@@ -5,6 +5,10 @@
    .custome1{
       background-color: #9e9e9e;
    }
+   .ddown{
+      padding: 5px;
+      border: 0px;
+   }
 </style>
 
 <div class="container-fluid">
@@ -15,7 +19,9 @@
             <th>Customer Name</th>
             <th>Customer Email</th>
             <th>Queries</th>
-            <th>Statius</th>
+            <th>Change Status</th>
+            <th>Save status</th>
+            <th>display status</th>
          </thead>
          <tbody>
             @foreach ($contract as $contact)
@@ -23,9 +29,20 @@
                <td class="align-middle">{{ $contact->name }}</td>
                <td class="align-middle">{{ $contact->email }}</td>
                <td class="align-middle">{{ $contact->message }}</td>
-               <td class="align-middle">
-               <button id="btnchange" class="btn rounded text-white custome1">Pending...</button>
-               </td>
+               <form action="{{route('contact.update',$contact->id)}}" method="POST">
+               @csrf
+                     <td class="align-middle">
+                     <select name="replyStatus" class="ddown">
+                        <option selected="selected" value="pending">Pending</option>
+                        <option value="Replied">Replied</option>
+                     </select>
+                     <!-- <button id="btnchange" class="btn rounded text-white custome1">Pending...</button> -->
+                     </td>
+                     <td>
+                     <button class="btn btn-warning text-white">Save</button>
+                     </td>
+               </form>
+               <td class="align-middle">{{$contact->replyStatus}}</td>
             </tr>
             @endforeach
          </tbody>

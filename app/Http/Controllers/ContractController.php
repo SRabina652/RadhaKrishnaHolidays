@@ -17,7 +17,7 @@ class ContractController extends Controller
     }
     public function index()
     {
-        $contract = Contract::latest()->paginate(1);
+        $contract = Contract::latest()->paginate(5);
         return view('contract.index', compact('contract'));
     }
 
@@ -32,4 +32,10 @@ class ContractController extends Controller
         return redirect()->route('contact.index');
     }
 
+    public function update(Request $request, $id){
+        $updateDay = Contract::findorFail($id);
+        $updateDay->replyStatus = $request->replyStatus;
+        $updateDay->save();
+        return redirect()->route('contact.index');
+    }
 }

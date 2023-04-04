@@ -1,11 +1,6 @@
 @extends('admin.layouts.admin-dash-layout')
 @section('title',"Display Days Descriptions")
 @section('content')
-<style>
-   .custome1 {
-      background-color: #9e9e9e;
-   }
-</style>
 
 <div class="container-fluid">
    <h1>Display Days Descriptions</h1>

@@ -52,8 +52,11 @@ Route::get('/logo', [LogoController::class, 'index'])->name('logo.index');
 Route::get('/logo/edit/{logo}', [LogoController::class, 'edit'])->name('logo.edit');
 Route::put('/logo/update/{logo}', [LogoController::class, 'update'])->name('logo.update');
 
+
 //all about the contract controller
 Route::get('/contact-us', [ContractController::class, 'index'])->name('contact.index');
+Route::post('/contact-us/store/{id}', [ContractController::class, 'update'])->name('contact.update');
+
 
 //all about the Days Descriptions
 Route::get('/displayDays/create', [DayDescriptionController::class, 'create'])->name('dayDesc.create');
