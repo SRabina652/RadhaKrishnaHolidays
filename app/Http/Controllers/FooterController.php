@@ -5,21 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Footer;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
 
 
 class FooterController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the footer resource.
      */
     public function index()
     {
+        // if(Auth::guest()){
+        //     return view("login");
+        // }else{
         $footer = Footer::latest()->paginate(2);
         return view('footer.displayFooter', compact('footer'));
+        // }
     }
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified footer resource.
      */
     public function edit(Footer $footer)
     {
@@ -31,7 +36,7 @@ class FooterController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified footer resource in storage or database.
      */
     public function update(Request $request, string $id)
     {

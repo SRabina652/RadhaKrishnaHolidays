@@ -32,7 +32,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-
+      
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -44,6 +44,12 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item ">
+                    <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button class="text-dark h5 btn btn-warning text-white">logout</button>
+                    </form>
                 </li>
             </ul>
 
@@ -63,16 +69,13 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <span class="brand-text font-weight-light">Admin Panel</span>
-            </a>
-
+                <span class="brand-text text-white mx-4 font-weight-light">Admin Panel</span>
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-2 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="#" class="d-block text-white">Radha Krishna Travels</a>
+                        <h4 class="text-white">Radha Krishna Travels</h4>
                     </div>
                 </div>
 
@@ -81,7 +84,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                        
+
                         <li class="nav-item">
                             <a href="{{url('/display')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -93,31 +96,31 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{url('/add')}}" class="nav-link">
-                            &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+                                &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
                                 <p>
-                                &nbsp;&nbsp;Add Pakages Description
+                                    &nbsp;&nbsp;Add Pakages Description
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('dayDesc.index')}}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                Display Days
+                                    Display Days
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('dayDesc.create')}}" class="nav-link">
-                            &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+                                &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
                                 <p>
-                                &nbsp;&nbsp;Add Days Description
+                                    &nbsp;&nbsp;Add Days Description
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('include.index')}}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Display Include
                                 </p>
@@ -125,15 +128,15 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('include.create')}}" class="nav-link">
-                            &nbsp;&nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+                                &nbsp;&nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
                                 <p>
-                                &nbsp;&nbsp;Add Include Desctiption
+                                    &nbsp;&nbsp;Add Include Desctiption
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('exclude.index')}}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Display Exclude
                                 </p>
@@ -141,9 +144,9 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('exclude.create')}}" class="nav-link">
-                            &nbsp;&nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+                                &nbsp;&nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
                                 <p>
-                                &nbsp;&nbsp;Add Exclude Desctiption
+                                    &nbsp;&nbsp;Add Exclude Desctiption
                                 </p>
                             </a>
                         </li>
@@ -165,7 +168,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/contact-us')}}" class="nav-link">
-                            <i class="fa fa-users" aria-hidden="true"></i>
+                                <i class="fa fa-users" aria-hidden="true"></i>
                                 <p>
                                     Customer Queries
                                 </p>
@@ -174,13 +177,12 @@
 
                         <li class="nav-item">
                             <a href="{{route('user.index')}}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Display User
                                 </p>
                             </a>
                         </li>
-                        
 
                         <!-- <li class="nav-item">
                             <a href="#" class="nav-link">

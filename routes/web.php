@@ -9,6 +9,7 @@ use App\Http\Controllers\IncludeDescriptionController;
 use App\Http\Controllers\ExcludeDescriptionController;
 use App\Http\Controllers\DayDescriptionController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\UserController;
 use App\Models\Pakages;
 use Illuminate\Support\Facades\Route;
 
@@ -27,65 +28,79 @@ Route::get('/', function () {
     return view('home');
 });
 
-//all about the pakage controller
-Route::get('/display',[PakagesController::class, 'index'])->name('pakages.display');
-Route::get('/add',[PakagesController::class,'create'])->name('pakages.index');
-Route::post('/store',[PakagesController::class,'store'])->name('pakages.store');
-Route::get('/edit/{product}', [PakagesController::class,'edit'])->name('pakages.edit');
-Route::put('/update/{product}', [PakagesController::class,'update'])->name('pakages.update');
-Route::delete('/delete/{id}',[PakagesController::class,'destroy'])->name('pakages.delete');
+// login routes user controller
+Route::get('/login', [UserController::class, 'loginIndex'])->name('login.index');
+Route::post('/login', [UserController::class, 'login'])->name('admin.login');
+
+Route::post('/logout',[UserController::class, 'Logout'])->name('logout');;
+
+//routes to check the available session for logged in user
+Route::get('/session',function(){
+    $session=session()->all();
+    echo "<pre>";
+    print_r($session);
+});
+
+Route::get('/destroy',function(){
+    $destroy=session()->forget('user');
+    echo "<pre>";
+    print_r($destroy);
+});
+
+Route::group(['middleware' => 'web'], function () {
+    //all about the pakage controller
+    Route::get('/display', [PakagesController::class, 'index'])->name('pakages.display');
+    Route::get('/add', [PakagesController::class, 'create'])->name('pakages.index');
+    Route::post('/store', [PakagesController::class, 'store'])->name('pakages.store');
+    Route::get('/edit/{product}', [PakagesController::class, 'edit'])->name('pakages.edit');
+    Route::put('/update/{product}', [PakagesController::class, 'update'])->name('pakages.update');
+    Route::delete('/delete/{id}', [PakagesController::class, 'destroy'])->name('pakages.delete');
 
 
-//all about the footer controller
-Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
-Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
-Route::put('/footer/update/{footer}', [FooterController::class, 'update'])->name('footer.update');
+    //all about the user controllers
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/update/{user}', [UserController::class, 'update'])->name('user.update');
 
-//all about the user controllers
-Route::get('/user', [AdminUserController::class, 'index'])->name('user.index');
-Route::get('/user/edit/{user}', [AdminUserController::class, 'edit'])->name('user.edit');
-Route::put('/user/update/{user}', [AdminUserController::class, 'update'])->name('user.update');
+    //all about footer controller
+    Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
+    Route::get('/footer/edit/{footer}', [FooterController::class, 'edit'])->name('footer.edit');
+    Route::put('/footer/update/{footer}', [FooterController::class, 'update'])->name('footer.update');
 
+    //all about header logo controller
+    Route::get('/logo', [LogoController::class, 'index'])->name('logo.index');
+    Route::get('/logo/edit/{logo}', [LogoController::class, 'edit'])->name('logo.edit');
+    Route::put('/logo/update/{logo}', [LogoController::class, 'update'])->name('logo.update');
 
-//all about the header logo controller
-Route::get('/logo', [LogoController::class, 'index'])->name('logo.index');
-Route::get('/logo/edit/{logo}', [LogoController::class, 'edit'])->name('logo.edit');
-Route::put('/logo/update/{logo}', [LogoController::class, 'update'])->name('logo.update');
+    //all about contract controller
+    Route::get('/contact-us', [ContractController::class, 'index'])->name('contact.index');
+    Route::post('/contact-us/store/{id}', [ContractController::class, 'update'])->name('contact.update');
 
-
-//all about the contract controller
-Route::get('/contact-us', [ContractController::class, 'index'])->name('contact.index');
-Route::post('/contact-us/store/{id}', [ContractController::class, 'update'])->name('contact.update');
-
-
-//all about the Days Descriptions
-Route::get('/displayDays/create', [DayDescriptionController::class, 'create'])->name('dayDesc.create');
-Route::get('/displayDays', [DayDescriptionController::class, 'index'])->name('dayDesc.index');
-Route::post('/storeDays', [DayDescriptionController::class, 'store'])->name('dayDesc.store');
-Route::get('/editDay/{id}', [DayDescriptionController::class,'edit'])->name('dayDesc.edit');
-Route::put('/day/update/{daydescription}', [DayDescriptionController::class,'update'])->name('dayDesc.update');
-Route::delete('/displayDays/delete/{id}',[DayDescriptionController::class,'destroy'])->name('dayDesc.delete');
+    //all about Days Descriptions
+    Route::get('/displayDays/create', [DayDescriptionController::class, 'create'])->name('dayDesc.create');
+    Route::get('/displayDays', [DayDescriptionController::class, 'index'])->name('dayDesc.index');
+    Route::post('/storeDays', [DayDescriptionController::class, 'store'])->name('dayDesc.store');
+    Route::get('/editDay/{id}', [DayDescriptionController::class, 'edit'])->name('dayDesc.edit');
+    Route::put('/day/update/{daydescription}', [DayDescriptionController::class, 'update'])->name('dayDesc.update');
+    Route::delete('/displayDays/delete/{id}', [DayDescriptionController::class, 'destroy'])->name('dayDesc.delete');
 
 
+    //all about include controller
+    Route::get('/add/includes', [IncludeDescriptionController::class, 'create'])->name('include.create');
+    Route::get('/display/includes', [IncludeDescriptionController::class, 'index'])->name('include.index');
+    Route::post('/storeIncludes', [IncludeDescriptionController::class, 'store'])->name('include.store');
+    Route::get('/include/edit/{description}', [IncludeDescriptionController::class, 'edit'])->name('include.edit');
+    Route::put('/include/update/{description}', [IncludeDescriptionController::class, 'update'])->name('include.update');
+    Route::delete('/include/delete/{id}', [IncludeDescriptionController::class, 'destroy'])->name('include.delete');
 
-
-//all about the include controller
-Route::get('/add/includes', [IncludeDescriptionController::class, 'create'])->name('include.create');
-Route::get('/display/includes', [IncludeDescriptionController::class, 'index'])->name('include.index');
-Route::post('/storeIncludes', [IncludeDescriptionController::class, 'store'])->name('include.store');
-Route::get('/include/edit/{description}', [IncludeDescriptionController::class, 'edit'])->name('include.edit');
-Route::put('/include/update/{description}', [IncludeDescriptionController::class, 'update'])->name('include.update');
-Route::delete('/include/delete/{id}',[IncludeDescriptionController::class,'destroy'])->name('include.delete');
-
-//all about the exclude controller
-Route::get('/add/exclude', [ExcludeDescriptionController::class, 'create'])->name('exclude.create');
-Route::get('/display/exclude', [ExcludeDescriptionController::class, 'index'])->name('exclude.index');
-Route::post('/storeExclude', [ExcludeDescriptionController::class, 'store'])->name('exclude.store');
-Route::get('/exclude/edit/{description}', [ExcludeDescriptionController::class, 'edit'])->name('exclude.edit');
-Route::put('/exclude/update/{description}', [ExcludeDescriptionController::class, 'update'])->name('exclude.update');
-Route::delete('/exclude/delete/{id}',[ExcludeDescriptionController::class,'destroy'])->name('exclude.delete');
-
-
+    //all about exclude controller
+    Route::get('/add/exclude', [ExcludeDescriptionController::class, 'create'])->name('exclude.create');
+    Route::get('/display/exclude', [ExcludeDescriptionController::class, 'index'])->name('exclude.index');
+    Route::post('/storeExclude', [ExcludeDescriptionController::class, 'store'])->name('exclude.store');
+    Route::get('/exclude/edit/{description}', [ExcludeDescriptionController::class, 'edit'])->name('exclude.edit');
+    Route::put('/exclude/update/{description}', [ExcludeDescriptionController::class, 'update'])->name('exclude.update');
+    Route::delete('/exclude/delete/{id}', [ExcludeDescriptionController::class, 'destroy'])->name('exclude.delete');
+});
 
 //frontend controllers
 Route::get('/mountainflight', function () {

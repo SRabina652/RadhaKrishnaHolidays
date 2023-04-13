@@ -5,14 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Logo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class LogoController extends Controller
 {
+    /**
+     * Display the Logo Description resource.
+     */
     public function index()
     {
+        // if(Auth::guest()){
+        //     return view("login");
+        // }else{
         $logo = Logo::find(1);
         return view('logo.display', compact('logo'));
+        // }
     }
+    /**
+     * Show the form for editing the specified Logo resource.
+     */
     public function edit(Logo $logo)
     {
 
@@ -23,6 +35,9 @@ class LogoController extends Controller
         }
     }
 
+     /**
+     * Update the specified Logo resource in storage or database.
+     */
     public function update(Request $request, $id)
     {
         $request->validate([

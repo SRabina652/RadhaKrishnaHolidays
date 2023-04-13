@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(to right, rgb(121, 132, 123) , rgb(41, 40, 39));
+}
+.loginbox{
+    background-color: #393737;
+    width: 550px;
+    height: 500px;
+    padding: 40px;
+}
+.clrbtn{
+    background-image: linear-gradient(to right, rgb(121, 132, 123) , rgb(41, 40, 39));
+}

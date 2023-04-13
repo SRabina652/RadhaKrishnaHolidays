@@ -7,26 +7,36 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class PakagesController extends Controller
 {
 
-    public function validateAll(Request $request){
+    /**
+     *  function to validate all the input fields
+     */
+    public function validateAll(Request $request)
+    {
         $request->validate([
             'pakageName' => ['required', 'string', 'max:255'],
-            'Description'=>['required','string'],
+            'Description' => ['required', 'string'],
             'totalDays' => ['required', 'integer'],
-            'price' =>['required', 'integer'],
-            'pakageImage' => ['required','image','mimes:jpeg,png,jpg,gif'],
-            ]);
+            'price' => ['required', 'integer'],
+            'pakageImage' => ['required', 'image', 'mimes:jpeg,png,jpg,gif'],
+        ]);
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        // if(Auth::guest()){
+        //     return view("login");
+        // }else{
         $pakages = Pakages::latest()->paginate(7);
         return view('admin.display', compact('pakages'));
+        // }
         // return view('admin.layouts.admin-dash-layout', compact('pakages'));
     }
 
@@ -45,10 +55,10 @@ class PakagesController extends Controller
     {
         $this->validateAll($request);
 
-        $image='';
-        if($request->pakageImage){
+        $image = '';
+        if ($request->pakageImage) {
             $image = time() . '.' . $request->pakageImage->extension();
-            $request->pakageImage->move(public_path('uploads'),$image);
+            $request->pakageImage->move(public_path('uploads'), $image);
         }
 
         $data = new Pakages();
@@ -56,10 +66,9 @@ class PakagesController extends Controller
         $data->price = $request->price;
         $data->totalDays = $request->totalDays;
         $data->pakageImage = $image;
-        $data->Description=$request->Description;
+        $data->Description = $request->Description;
         $data->save();
-       // print_r($request->all());
-        return redirect()->route('pakages.index')->with('success','Product Data Inserted Successfully');
+        return redirect()->route('pakages.index')->with('success', 'Product Data Inserted Successfully');
     }
 
     /**
@@ -75,10 +84,10 @@ class PakagesController extends Controller
      */
     public function edit(Pakages $product)
     {
-        if(is_null($product)){
+        if (is_null($product)) {
             return redirect('admin.index');
-        }else{
-            return view('admin.edit',compact('product'))->with('success','Product updated Successfully');
+        } else {
+            return view('admin.edit', compact('product'))->with('success', 'Product updated Successfully');
         }
     }
 
@@ -87,28 +96,31 @@ class PakagesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // validate all the input fields
         $request->validate([
             'pakageName' => ['required', 'string', 'max:255'],
-            'Description'=>['required','string'],
+            'Description' => ['required', 'string'],
             'totalDays' => ['required', 'integer'],
-            'price' =>['required', 'integer'],
+            'price' => ['required', 'integer'],
         ]);
-        $image='';
-        if($request->pakageImage){
+        $image = '';
+        if ($request->pakageImage) {
             $image = time() . '.' . $request->pakageImage->extension();
-            $request->pakageImage->move(public_path('uploads'),$image);
+            $request->pakageImage->move(public_path('uploads'), $image);
         }
         $product = Pakages::findorFail($id);
         $product->pakageName = $request->pakageName;
         $product->price = $request->price;
         $product->totalDays = $request->totalDays;
-        if($request->hasFile('pakageImage')){
+
+        //it checks wether the storage has column as pakageImage or not if yes it delete and insert new image in the storage.
+        if ($request->hasFile('pakageImage')) {
             Storage::delete($product->pakageImage);
             $product->pakageImage = $image;
         }
-        $product->Description=$request->Description;
+        $product->Description = $request->Description;
         $product->save();
-       return redirect()->route('pakages.display')->with('success','Product Data Inserted Successfully');
+        return redirect()->route('pakages.display')->with('success', 'Product Data Inserted Successfully');
     }
 
     /**
@@ -116,9 +128,9 @@ class PakagesController extends Controller
      */
     public function destroy($id)
     {
-        $product=Pakages::findorFail($id);
-        if(!is_null($product)){
-           $product->delete();
+        $product = Pakages::findorFail($id);
+        if (!is_null($product)) {
+            $product->delete();
         }
         return redirect()->back();
     }
