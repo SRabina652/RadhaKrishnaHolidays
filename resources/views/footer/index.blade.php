@@ -25,38 +25,30 @@
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="facebook" class="form-label">Facebook</label>
-                <input type="text" name="facebook" class="form-control" value="{{ $footer->facebook }}">
-                @error('facebook')
+                <label for="facebook" class="form-label">Location</label>
+                <input type="text" name="Location" class="form-control" value="{{ $footer->Location }}">
+                @error('Location')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="facebook" class="form-label"> Twitter</label>
-                <input type="text" name="Twitter" class="form-control" value="{{ $footer->Twitter }}">
-                @error('Twitter')
-                <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="WhatsApp" class="form-label">WhatsApp</label>
-                <input type="text" name="WhatsApp" class="form-control" value="{{ $footer->WhatsApp }}">
-                @error('WhatsApp')
+                <label for="facebook" class="form-label"> Telephone</label>
+                <input type="text" name="Telephone" class="form-control" value="{{ $footer->Telephone }}">
+                @error('Telephone')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="instagram" class="form-label">Instagram</label>
-                <input type="text" name="instagram" class="form-control" value="{{ $footer->instagram }}">
-                @error('instagram')
+                <label for="MailId" class="form-label">MailId</label>
+                <input type="text" name="MailId" class="form-control" value="{{ $footer->MailId }}">
+                @error('MailId')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="phone_number" class="form-label">Phone number</label>
-                <input type="text" name="phone_number" class="form-control" value="{{ $footer->phone_number }}">
-                @error('phone_number')
+                <label for="PhoneNumber" class="form-label">Phone number</label>
+                <input type="text" name="PhoneNumber" class="form-control" value="{{ $footer->PhoneNumber }}">
+                @error('PhoneNumber')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>

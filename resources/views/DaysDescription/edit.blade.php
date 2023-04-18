@@ -19,43 +19,21 @@
 </div>
 @endif
   <h1 class="text-center">Edit Days descriptions</h1>
-  <form action="{{route ('pakages.update',$product->id)}}" method="POST" enctype="multipart/form-data">
+  <form action="{{route ('dayDesc.update',$product->day_description_id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-    <div class="mb-3">
-      <label for="exampleInputName" class="form-label">Pakage Name</label>
-      <input type="text" class="form-control" name="pakageName" value4="{{$product->pakageName}}">
-      @error('pakageName')
-      <div class="text-danger">{{ $message }}</div>
-      @enderror
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputprice" class="form-label">Pakage Price</label>
-      <input type="number" class="form-control" name="price" value="{{$product->price}}" />
-      @error('price')
-      <div class="text-danger">{{ $message }}</div>
-      @enderror
-    </div>
 
     <div class="mb-3">
-      <label for="exampleInputquantity" class="form-label">Time of Pakage</label>
-      <input type="number" class="form-control" name="totalDays" value="{{$product->totalDays}}">
-      @error('totalDays')
-      <div class="text-danger">{{ $message }}</div>
-      @enderror44
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputImage" class="form-label">Pakage Image</label>
-      <input type="file" class="form-control" name="pakageImage"  value="{{asset('uploads/'.$product->pakageImage)}}">
-        <img src="{{asset('uploads/'.$product->pakageImage)}}" width="60px" height="60px">
-      @error('pakageImage')
+      <label for="exampleInputName" class="form-label">Day Number</label>
+      <input type="text" class="form-control" name="days" value="{{$product->days}}"/>
+      @error('days')
       <div class="text-danger">{{ $message }}</div>
       @enderror
     </div>
     <div class="mb-3">
-      <label for="exampleInputName" class="form-label">Short Description</label>
-      <input type="text" class="form-control" name="Description" value="{{$product->Description}}"></textarea>
-      @error('Description')
+      <label for="exampleInputName" class="form-label">Day Description</label>
+      <input type="text" class="form-control" name="DayDescription" value="{{$product->DayDescription}}"/>
+      @error('DayDescription')
       <div class="text-danger">{{ $message }}</div>
       @enderror
     </div>
