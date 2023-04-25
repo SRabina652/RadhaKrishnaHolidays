@@ -16,6 +16,7 @@ class ContractController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
             'message' =>['required', 'string'],
             ]);
     }
@@ -45,6 +46,7 @@ class ContractController extends Controller
         $data = new Contract();
         $data->name = $request->name;
         $data->email = $request->email;
+        $data->country = $request->country;
         $data->message = $request->message;
         $data->save();
         return redirect()->route('contact.index');

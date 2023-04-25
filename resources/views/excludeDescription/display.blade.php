@@ -52,7 +52,7 @@
         </div>
 
         <div>
-            <a href="{{route('pakages.display')}}" class="btn btn-primary">Go Back</a>
+            <a href="{{route('pakages.display')}}" class="btn btn-success">Go Back</a>
         </div>
     </div>
 </div>

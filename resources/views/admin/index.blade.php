@@ -2,14 +2,14 @@
 @section('title',"Add Pakages")
 @section('content')
 <div class="container mt-2 px-1">
-@if($success = \Session::get('success'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-   {{$success}}
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-@endif
+  @if($success = \Session::get('success'))
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{$success}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  @endif
   <h1 class="text-center">Add Pakages</h1>
   <form action="{{route ('pakages.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -42,6 +42,18 @@
       <div class="text-danger">{{ $message }}</div>
       @enderror
     </div>
+
+    <div class="mb-3">
+    <label for="exampleInputImage" class="form-label">Select the type of pakages: </label>
+    <br>
+      <select name="pakageType" class="ddown pt-2 pb-2 px-5">
+        <option selected="selected" value="Normal">Normal pakages</option>
+        <option value="Popular">Popular pakages</option>
+        <option value="Best">Best pakages</option>
+      </select>
+    </div>
+
+
     <div class="mb-3">
       <label for="exampleInputName" class="form-label">Short Description</label>
       <textarea type="text" class="form-control" name="Description" value="{{old('Description')}}" rows="4" cols="40"></textarea>

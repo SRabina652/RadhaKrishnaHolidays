@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('pakageName');
             $table->integer('totalDays');
-            $table->integer('price');
+            $table->double('price', 10, 5);
+
+            $table->string('pakageType');
+            
             $table->string('pakageImage');
             $table->string('Description');
             $table->timestamps();

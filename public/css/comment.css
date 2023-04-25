@@ -1,0 +1,17 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color:#eeeeee;
+}
+
+textarea {
+    border: none;
+    background-color: white;
+    resize: none;
+    outline: none;
+}
+.marginbtn{
+    margin-top: -33px;
+}

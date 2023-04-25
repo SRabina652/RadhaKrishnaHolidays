@@ -23,9 +23,19 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 //for home page
+
 Route::get('/', function () {
-    return view('home');
+    return view('index');
+});
+
+Route::get('/contact', function () {
+    return view('frontend.contact');
+});
+
+Route::get('/about', function () {
+    return view('frontend.about');
 });
 
 // login routes user controller
@@ -47,7 +57,9 @@ Route::get('/destroy',function(){
     print_r($destroy);
 });
 
-Route::group(['middleware' => 'web'], function () {
+
+
+// Route::group(['middleware' => 'adminOnly'], function () {
     //all about the pakage controller
     Route::get('/display', [PakagesController::class, 'index'])->name('pakages.display');
     Route::get('/add', [PakagesController::class, 'create'])->name('pakages.index');
@@ -56,11 +68,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::put('/update/{product}', [PakagesController::class, 'update'])->name('pakages.update');
     Route::delete('/delete/{id}', [PakagesController::class, 'destroy'])->name('pakages.delete');
 
-
     //all about the user controllers
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
     Route::put('/user/update/{user}', [UserController::class, 'update'])->name('user.update');
+
 
     //all about footer controller
     Route::get('/footer', [FooterController::class, 'index'])->name('footer.index');
@@ -100,7 +112,15 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/exclude/edit/{description}', [ExcludeDescriptionController::class, 'edit'])->name('exclude.edit');
     Route::put('/exclude/update/{description}', [ExcludeDescriptionController::class, 'update'])->name('exclude.update');
     Route::delete('/exclude/delete/{id}', [ExcludeDescriptionController::class, 'destroy'])->name('exclude.delete');
+// });
+
+
+//comments
+
+Route::get('/comments',function(){
+    return view('Comments.comment');
 });
+
 
 //frontend controllers
 Route::get('/mountainflight', function () {
@@ -115,10 +135,10 @@ Route::get('/tourpackage', function () {
 Route::get('/services', function () {
     return view('services');
 });
-Route::get('/about', function () {
+Route::get('/about_us', function () {
     return view('about');
 });
-Route::get('/contact', function () {
+Route::get('/contact_us', function () {
     return view('contact');
 });
 

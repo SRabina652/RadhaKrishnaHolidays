@@ -18,6 +18,7 @@
          <thead class="bg-success text-white fw-bold">
             <th>Customer Name</th>
             <th>Customer Email</th>
+            <th>Country</th>
             <th>Queries</th>
             <th>Change Status</th>
             <th>Save status</th>
@@ -28,6 +29,7 @@
             <tr>
                <td class="align-middle">{{ $contact->name }}</td>
                <td class="align-middle">{{ $contact->email }}</td>
+               <td class="align-middle">{{ $contact->country }}</td>
                <td class="align-middle">{{ $contact->message }}</td>
                <form action="{{route('contact.update',$contact->id)}}" method="POST">
                @csrf
@@ -36,7 +38,6 @@
                         <option selected="selected" value="pending">Pending</option>
                         <option value="Replied">Replied</option>
                      </select>
-                     <!-- <button id="btnchange" class="btn rounded text-white custome1">Pending...</button> -->
                      </td>
                      <td>
                      <button class="btn btn-warning text-white">Save</button>

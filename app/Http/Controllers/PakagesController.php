@@ -21,8 +21,9 @@ class PakagesController extends Controller
         $request->validate([
             'pakageName' => ['required', 'string', 'max:255'],
             'Description' => ['required', 'string'],
+            'pakageType' => ['required', 'string'],
             'totalDays' => ['required', 'integer'],
-            'price' => ['required', 'integer'],
+            'price' => ['required'],
             'pakageImage' => ['required', 'image', 'mimes:jpeg,png,jpg,gif'],
         ]);
     }
@@ -64,6 +65,7 @@ class PakagesController extends Controller
         $data = new Pakages();
         $data->pakageName = $request->pakageName;
         $data->price = $request->price;
+        $data->pakageType = $request->pakageType;
         $data->totalDays = $request->totalDays;
         $data->pakageImage = $image;
         $data->Description = $request->Description;
@@ -101,7 +103,7 @@ class PakagesController extends Controller
             'pakageName' => ['required', 'string', 'max:255'],
             'Description' => ['required', 'string'],
             'totalDays' => ['required', 'integer'],
-            'price' => ['required', 'integer'],
+            'price' => ['required'],
         ]);
         $image = '';
         if ($request->pakageImage) {
@@ -110,6 +112,7 @@ class PakagesController extends Controller
         }
         $product = Pakages::findorFail($id);
         $product->pakageName = $request->pakageName;
+        $product->pakageType = $request->pakageType;
         $product->price = $request->price;
         $product->totalDays = $request->totalDays;
 

@@ -34,6 +34,9 @@
             @endforeach
          </tbody>
       </table>
+      <div>
+            <a href="{{route('dayDesc.index')}}" class="btn btn-success">Go Back</a>
+        </div>
       <div class="d-flex">
          <div class="mx-auto">
             {!! $data->links() !!}

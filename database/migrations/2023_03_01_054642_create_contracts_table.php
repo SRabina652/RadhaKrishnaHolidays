@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name',200);
             $table->string('email',350);
+            $table->string('country');
             $table->string('message');
             $table->string('replyStatus')->nullable();
             $table->timestamps();

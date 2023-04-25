@@ -5,6 +5,7 @@
             <th>pakage Price</th>
             <th>Description</th>
             <th>Pakage Days</th>
+            <th>Pakage Type</th>
             <th>Pakage Image</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -16,6 +17,7 @@
                 <td class="align-middle">$ {{$product->price}}</td>
                 <td class="align-middle">{{$product->Description}}</td>
                 <td class="align-middle">{{$product->totalDays}} days</td>
+                <td class="align-middle">{{$product->pakageType}} Pakages</td>
                 <td class="align-middle"><img src="{{ asset('uploads/' .$product->pakageImage) }}" class="img-thumbnail" height="50" width="50"></td>
                 <td><a href="{{route('pakages.edit',$product->id)}}" class="btn btn-light">Edit</a></td>
                 <td>

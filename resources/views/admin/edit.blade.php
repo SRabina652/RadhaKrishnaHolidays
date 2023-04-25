@@ -53,6 +53,13 @@
       @enderror
     </div>
     <div class="mb-3">
+      <select name="pakageType" class="ddown">
+        <option selected="selected" value="Normal">Normal pakages</option>
+        <option value="Popular">Popular pakages</option>
+        <option value="Best">Best pakages</option>
+      </select>
+    </div>
+    <div class="mb-3">
       <label for="exampleInputName" class="form-label">Short Description</label>
       <input type="text" class="form-control" name="Description" value="{{$product->Description}}"></textarea>
       @error('Description')

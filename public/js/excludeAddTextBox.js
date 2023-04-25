@@ -6,7 +6,7 @@ function addTextBox(){
     div.setAttribute("class","form-group");
     div.setAttribute("id","box_"+counter);
 
-    textBox = '<label>Exclude '+(counter + 1)+'</label><input type="text" class="form-control" id="days" name="ExcludePoints['+counter+']"/><input class="text-primary bg-warning border-0 mt-1 p-2" type="button" value="remove" onclick="removeBox(this)"/>';
+    textBox = '<label class="mt-3">Exclude '+(counter + 1)+'</label><input type="text" class="form-control" id="days" name="ExcludePoints['+counter+']"/><input class="text-white bg-danger border-0 mt-2 p-2" type="button" value="remove" onclick="removeBox(this)"/>';
     div.innerHTML = textBox;
     days.appendChild(div);
     counter++;
