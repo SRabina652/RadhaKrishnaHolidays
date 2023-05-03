@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -15,14 +14,13 @@
 
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
- </head>
+</head>
 
 <body>
     <!--iconbar-->
     <section class="bg text-light ">
         <div class="d-flex justify-content-center align-items-center container text-center">
-        <div class="p-3"> <a href="mailto: info@radhakrishnaholidays.org"
-                    style="text-decoration: none; color: #fff;"> info@radhakrishnaholidays.org</a></div>
+            <div class="p-3"> <a href="mailto: info@radhakrishnaholidays.org" style="text-decoration: none; color: #fff;"> info@radhakrishnaholidays.org</a></div>
 
             <div class="social-links align-items-center me-5 ">
                 <ul class="list  ">
@@ -394,6 +392,17 @@
             <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
         </div>-->
         </header>
+
+        <div class="container mt-5 px-5">
+            <div class="row mb-4">
+                <form>
+                    <div class="form-group">
+                        <input id="exampleFormControlInput5" type="text" placeholder="What're you searching for?" class="form-control form-control-underlined" name="search">
+                        <button type="button" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <!--image ko biccha ma bhako welcome text-->
         <div>
             <!--background Starts-->
@@ -1015,7 +1024,7 @@
                         </div>
                         <div class="carousel-item">
                             <div class="testimonial4_slide">
-                            <img src="{{ asset('images/indexpage/testimonial/k.png') }}" class="img-circle img-responsive">
+                                <img src="{{ asset('images/indexpage/testimonial/k.png') }}" class="img-circle img-responsive">
                                 <p>I was a bit nervous about traveling to a new country, but the staff at this travel
                                     company made me feel completely at ease. They took care of everything, from the
                                     airport transfers to the hotel reservations, and the tour itself was simply amazing.
@@ -1026,7 +1035,7 @@
                         </div>
                         <div class="carousel-item">
                             <div class="testimonial4_slide">
-                            <img src="{{ asset('images/indexpage/testimonial/natheline.png') }}" class="img-circle img-responsive">
+                                <img src="{{ asset('images/indexpage/testimonial/natheline.png') }}" class="img-circle img-responsive">
                                 <p>If you want to see the world in style, this travel company is the way to go. Their
                                     attention to detail is unmatched, and every aspect of the tour was carefully planned
                                     to ensure a seamless experience. I felt like royalty the entire time, and I can't
@@ -1037,7 +1046,7 @@
                         </div>
                         <div class="carousel-item">
                             <div class="testimonial4_slide">
-                            <img src="{{ asset('images/indexpage/testimonial/ram.png') }}" class="img-circle img-responsive">
+                                <img src="{{ asset('images/indexpage/testimonial/ram.png') }}" class="img-circle img-responsive">
                                 <p>I've traveled with many tour companies in the past, but this one really stood out.
                                     The guides were incredibly knowledgeable and passionate about the destinations we
                                     visited, and the accommodations and transportation were top-notch. I would
@@ -1108,12 +1117,13 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https:/y.com/jquery-3.6.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+</script>
 <script>
     // When the user scrolls the page, execute myFunction
-    window.onscroll = function () { myFunction() };
+    window.onscroll = function() {
+        myFunction()
+    };
 
     // Get the header
     var header = document.getElementById("navbarNav");
@@ -1129,7 +1139,6 @@
             header.classList.remove("sticky");
         }
     }
-
 </script>
 <script>
     var swiper = new Swiper('.swiper-container', {

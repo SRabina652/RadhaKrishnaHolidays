@@ -11,13 +11,8 @@ class AdminUserController extends Controller
 {
     public function index()
     {
-        // if(Auth::guest()){
-        //     return view("login");
-        // }else{
             $users = AdminUser::find(1);
             return view('user.display', compact('users'));
-        // }
-        
     }
 
     public function edit(AdminUser $user)

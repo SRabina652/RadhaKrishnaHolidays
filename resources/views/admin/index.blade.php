@@ -44,8 +44,8 @@
     </div>
 
     <div class="mb-3">
-    <label for="exampleInputImage" class="form-label">Select the type of pakages: </label>
-    <br>
+      <label for="exampleInputImage" class="form-label">Select the type of pakages: </label>
+      <br>
       <select name="pakageType" class="ddown pt-2 pb-2 px-5">
         <option selected="selected" value="Normal">Normal pakages</option>
         <option value="Popular">Popular pakages</option>

@@ -9,8 +9,10 @@ use App\Http\Controllers\IncludeDescriptionController;
 use App\Http\Controllers\ExcludeDescriptionController;
 use App\Http\Controllers\DayDescriptionController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\UserController;
 use App\Models\Pakages;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,11 +26,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//send mail
+Route::get('/send-mail',[MailController::class,'index']);
+
 //for home page
 
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/', [FrontendController::class, 'index'])->name('Frontend.index');
 
 Route::get('/contact', function () {
     return view('frontend.contact');
@@ -51,6 +58,7 @@ Route::get('/session',function(){
     print_r($session);
 });
 
+//check by destroying all the 
 Route::get('/destroy',function(){
     $destroy=session()->forget('user');
     echo "<pre>";
@@ -58,8 +66,15 @@ Route::get('/destroy',function(){
 });
 
 
+// check includes
+Route::get('/include/{id}', [FrontendController::class, 'include']);
 
-// Route::group(['middleware' => 'adminOnly'], function () {
+
+
+
+
+
+Route::group(['middleware' => 'adminOnly'], function () {
     //all about the pakage controller
     Route::get('/display', [PakagesController::class, 'index'])->name('pakages.display');
     Route::get('/add', [PakagesController::class, 'create'])->name('pakages.index');
@@ -112,7 +127,7 @@ Route::get('/destroy',function(){
     Route::get('/exclude/edit/{description}', [ExcludeDescriptionController::class, 'edit'])->name('exclude.edit');
     Route::put('/exclude/update/{description}', [ExcludeDescriptionController::class, 'update'])->name('exclude.update');
     Route::delete('/exclude/delete/{id}', [ExcludeDescriptionController::class, 'destroy'])->name('exclude.delete');
-// });
+});
 
 
 //comments

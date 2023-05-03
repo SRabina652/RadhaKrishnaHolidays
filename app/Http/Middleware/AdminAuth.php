@@ -18,23 +18,26 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        // $path=$request->path();
-        // if($path != "login" && !request()->session()->get('user')){
-        //     return redirect("/login");
-        // }
-        // return $next($request);
-        if(Auth::check()){
-            if(Auth::user()->status == 1){
-                return redirect('/display');
-                // return $next($request);
-            }else{
-                return redirect('/')->with('message','Access Denied you are user not admin');
-            }
-        }else{
-            return redirect('/login')->with('message','Access Denied you are user not admin');
+        $path=$request->path();
 
+        if(session()->has('user')){
+            return $next($request);
+        }else if($path != "login" && !request()->session()->get('user')){
+            return redirect("/login");
         }
         return $next($request);
+        // if(Auth::check()){
+        //     if(Auth::user()->status == 1){
+        //         return redirect('/display');
+        //         // return $next($request);
+        //     }else{
+        //         return redirect('/')->with('message','Access Denied you are user not admin');
+        //     }
+        // }else{
+        //     return redirect('/login')->with('message','Access Denied you are user not admin');
+
+        // }
+        // return $next($request);
     
     }
     

@@ -8,7 +8,7 @@ use App\Models\Pakages;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Throwable;
 
 class DayDescriptionController extends Controller
 {
@@ -47,6 +47,8 @@ class DayDescriptionController extends Controller
         ]);
 
         //loop to insert all the day description one by one
+
+        try{
         foreach ($request->DayDescription as $key => $value) {
             $day = new DayDescription();
             $saveRecord = [
@@ -56,6 +58,10 @@ class DayDescriptionController extends Controller
             ];
 
             $day->save($saveRecord);
+        }
+        }catch(Throwable $ex){
+            //if unique constraint is violated then data is not uploaded to the database and this section runs
+            echo "You cannot insert duplicate days of same pakages";
         }
 
         return redirect()->route('dayDesc.index')->with('success', 'Product Data Inserted Successfully');
